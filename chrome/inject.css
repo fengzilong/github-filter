@@ -1,0 +1,15 @@
+.github-filter-injected .alert {
+	display: none;
+}
+
+.watch_started .title a:nth-child(2):visited {
+  color: #BE58D4;
+}
+
+#dashboard > .column {
+	width: 100%;
+}
+
+.dashboard-sidebar {
+	display: none;
+}
