@@ -1,2 +1,9 @@
 # github-filter
-chrome extension for filtering messages on github
+
+## What it does
+* Filtering messages on github
+* Making the view wide
+* Highlight the links clicked before
+
+## Snapshot
+![](snapshot.png)

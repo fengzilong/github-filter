@@ -44,7 +44,7 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 				cssStatus = {};
 			}
 
-			if(Object.keys(cssStatus) > 0){
+			if(Object.keys(cssStatus).length > 0){
 				insertCSS('_all_', 'hide');
 			}
 
