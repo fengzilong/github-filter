@@ -1,8 +1,8 @@
 # github-filter
 
 ## What it does
-* Filtering messages on github
-* Making the view wide
+* Filter messages on github
+* Make a wider view 
 * Highlight the links clicked before
 
 ## Snapshot
