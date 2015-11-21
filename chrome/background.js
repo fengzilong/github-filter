@@ -9,6 +9,31 @@ var rule = {
 }
 
 chrome.runtime.onInstalled.addListener(function(details) {
+	var status = null;
+	
+	try {
+		status = JSON.parse( localStorage.status );
+	} catch( e ) {
+		status = {};
+	}
+	
+	localStorage.status = JSON.stringify(
+		_.extend(
+			{
+				create: true,
+				delete: true,
+				fork: true,
+				issues_closed: true,
+				issues_comment: true,
+				issues_opened: true,
+				member_add: true,
+				push: true,
+				star: true
+			},
+			status
+		)
+	);
+	
 	chrome.declarativeContent.onPageChanged.removeRules(null, function() {
 		chrome.declarativeContent.onPageChanged.addRules([rule]);
 	});
@@ -16,18 +41,18 @@ chrome.runtime.onInstalled.addListener(function(details) {
 
 function insertCSS(name, type){
 	chrome.tabs.query({
-		active: true
+		url: 'https://github.com/'
 	}, function(tabs){
-		if(tabs.length > 0){
+		_.each(tabs, function( tab ){
 			try {
-				chrome.tabs.insertCSS(tabs[0].id, {
+				chrome.tabs.insertCSS(tab.id, {
 					file: '/chrome/github_css/' + name + '/' + type + '.css'
 				}, function(){
 				});
 			} catch(e) {
 				//cancel
 			}
-		}
+		});
 	});
 }
 
@@ -56,11 +81,9 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
 				}
 			}
 
-			setTimeout(function(){
-				sendResponse({
-					success: true
-				});
-			}, 1000);
+			sendResponse({
+				success: true
+			});
 			break;
 		default:
 			sendResponse({

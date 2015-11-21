@@ -33,6 +33,8 @@
 		cssStatus = {};
 	}
 
+	console.log('cssStatus',cssStatus);
+
 
 	if(Object.keys(cssStatus) > 0){
 		insertCSS('_all_', 'hide');
