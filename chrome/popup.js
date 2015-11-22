@@ -12,17 +12,20 @@
 	}*/
 
 	function insertCSS(name, type){
-		console.log('INSERT -> ', chrome.runtime.getURL('/chrome/github_css/' + name + '/' + type + '.css'));
-
-		try {
-			chrome.tabs.insertCSS(null, {
-				file: '/chrome/github_css/' + name + '/' + type + '.css'
-			}, function(){
-				
+		chrome.tabs.query({
+			url: 'https://github.com/'
+		}, function(tabs){
+			_.each(tabs, function( tab ){
+				try {
+					chrome.tabs.insertCSS(tab.id, {
+						file: '/chrome/github_css/' + name + '/' + type + '.css'
+					}, function(){
+					});
+				} catch(e) {
+					//cancel
+				}
 			});
-		} catch(e) {
-			//cancel
-		}
+		});
 	}
 
 	var cssStatus = localStorage.status;
@@ -32,9 +35,6 @@
 	} catch(e) {
 		cssStatus = {};
 	}
-
-	console.log('cssStatus',cssStatus);
-
 
 	if(Object.keys(cssStatus) > 0){
 		insertCSS('_all_', 'hide');
