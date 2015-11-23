@@ -28,6 +28,16 @@ $(function(){
 		}
 	}
 
+	$win.on('mousewheel', function( e ){
+		var scrollTop = $win.scrollTop();
+
+		if( scrollTop === 0 && window.event.deltaY > 0 ){
+			$('.ajax-pagination-btn')[0].click();
+		} else if( scrollTop > 0 ) {
+			$win.off( e );
+		}
+	});
+
 	$win.on('scroll', function( e ){
 		if( timer ){
 			clearTimeout( timer );
