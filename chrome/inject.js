@@ -30,9 +30,10 @@ $(function(){
 
 	$win.on('mousewheel', function( e ){
 		var scrollTop = $win.scrollTop();
+		var $loadMore = $('.ajax-pagination-btn');
 
-		if( scrollTop === 0 && window.event.deltaY > 0 ){
-			$('.ajax-pagination-btn')[0].click();
+		if( scrollTop === 0 && window.event.deltaY > 0 && $loadMore.length > 0 ){
+			$loadMore[0].click();
 		} else if( scrollTop > 0 ) {
 			$win.off( e );
 		}
