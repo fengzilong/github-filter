@@ -11,14 +11,14 @@
 	},
 	"page_action" : {
 		"default_icon" : "icon.png",
-		"default_title" : "sort",
+		"default_title" : "filter",
 		"default_popup": "pages/popup.html"
 	},
 	"content_scripts": [{
 		"all_frames": true,
 		"js": ["vendor/jquery.min.js", "chrome/inject.js"],
 		"css": ["chrome/inject.css"],
-		"matches": ["https://github.com/*"],
+		"matches": ["https://github.com/"],
 		"run_at": "document_start"
 	}],
 	"background" : {
