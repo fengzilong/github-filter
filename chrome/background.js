@@ -1,13 +1,3 @@
-var rule = {
-	conditions : [
-		new chrome.declarativeContent.PageStateMatcher({
-			pageUrl: {urlMatches: '^https://github\.com/$'},
-			css: ['#dashboard']
-		})
-	],
-	actions : [new chrome.declarativeContent.ShowPageAction()]
-}
-
 chrome.runtime.onInstalled.addListener(function(details) {
 	var status = null;
 	
@@ -33,10 +23,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
 			status
 		)
 	);
-	
-	chrome.declarativeContent.onPageChanged.removeRules(null, function() {
-		chrome.declarativeContent.onPageChanged.addRules([rule]);
-	});
 });
 
 function insertCSS(name, type){
