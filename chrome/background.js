@@ -27,7 +27,7 @@ chrome.runtime.onInstalled.addListener(function(details) {
 
 function insertCSS(name, type){
 	chrome.tabs.query({
-		url: 'https://github.com/'
+		active: true
 	}, function(tabs){
 		_.each(tabs, function( tab ){
 			try {
