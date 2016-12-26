@@ -1,12 +1,13 @@
 # github-filter
 
-## What it does
+> filter messages on github
 
-* Filter messages on your github homepage
-* Highlight links you clicked before
-* auto load next page while scrolling
-* Make view wider
+## Features
 
-## Snapshot
+* Filter messages in github homepage
+* Highlight viewed links
+* Auto load next page while scrolling
 
-![](snapshot.png)
+## Screenshot
+
+<img src="snapshot.png" alt="screenshot" width="800" />
