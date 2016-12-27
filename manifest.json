@@ -18,7 +18,7 @@
 		"all_frames": true,
 		"js": ["vendor/jquery.min.js", "chrome/inject.js"],
 		"css": ["chrome/inject.css"],
-		"matches": ["https://github.com/", "https://github.com/dashboard/index/*"],
+		"matches": ["https://github.com/", "https://github.com/dashboard/*"],
 		"run_at": "document_start"
 	}],
 	"background" : {
